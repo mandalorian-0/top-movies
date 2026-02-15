@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap5
 
 from db.__init__ import SessionLocal, create_tables
-from services.movie_service import get_all_movies, update_movie, delete_movie
+from services.movie_service import get_all_movies, update_movie, delete_movie, add_movie
 from form.update import UpdateForm
 from form.add_movie import AddMovieForm
 from api import api
@@ -56,6 +56,22 @@ def edit():
 @app.route("/movies/add", methods=["GET", "POST"])
 def add():
     form = AddMovieForm()
+    pre = "https://image.tmdb.org/t/p/original"
+    db = next(get_db())
+
+    if request.args:
+        movie_id = request.args.get("id")
+        movie_detail = api.get_movie_details(movie_id)
+
+        # add new movie based on the fetched movie
+        new_movie: dict[str, str] = {
+            "title": movie_detail.get("title"),
+            "img_url": f"{pre}{movie_detail.get("poster_path")}",
+            "year": movie_detail.get("release_date"),
+            "description": movie_detail.get("overview")
+        }
+        add_movie(db, new_movie)
+        return redirect(url_for("home"))
 
     if form.validate_on_submit():
         movie_title = form.data.get('title')
