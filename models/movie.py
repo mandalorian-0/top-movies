@@ -1,8 +1,8 @@
-# from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped
 from sqlalchemy import Integer, String, Float, Column
 from sqlalchemy.ext.declarative import declarative_base
 
-from core.base import Base
+from db.__init__ import Base
 
 class Movie(Base):
     __tablename__ = "movies"
