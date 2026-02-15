@@ -7,7 +7,7 @@ from form.update import UpdateForm
 from form.add_movie import AddMovieForm
 from api import api
 
-MOVIE_DB_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+MOVIE_DB_IMAGE_URL = "https://image.tmdb.org/t/p/original"
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
