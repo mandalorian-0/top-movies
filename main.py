@@ -7,6 +7,8 @@ from form.update import UpdateForm
 from form.add_movie import AddMovieForm
 from api import api
 
+MOVIE_DB_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 Bootstrap5(app)
@@ -56,7 +58,6 @@ def edit():
 @app.route("/movies/add", methods=["GET", "POST"])
 def add():
     form = AddMovieForm()
-    pre = "https://image.tmdb.org/t/p/original"
     db = next(get_db())
 
     if request.args:
@@ -66,7 +67,7 @@ def add():
         # add new movie based on the fetched movie
         new_movie: dict[str, str] = {
             "title": movie_detail.get("title"),
-            "img_url": f"{pre}{movie_detail.get("poster_path")}",
+            "img_url": f"{MOVIE_DB_IMAGE_URL}{movie_detail.get("poster_path")}",
             "year": movie_detail.get("release_date"),
             "description": movie_detail.get("overview")
         }
