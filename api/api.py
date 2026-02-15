@@ -18,7 +18,7 @@ def movie_lookup(title: str):
         response.raise_for_status()
         data = response.json()
         
-        return data
+        return data.get("results")
     except requests.RequestException as e:
         print(e)
 

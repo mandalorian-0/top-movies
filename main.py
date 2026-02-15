@@ -5,6 +5,7 @@ from db.__init__ import SessionLocal, create_tables
 from services.movie_service import get_all_movies, update_movie, delete_movie
 from form.update import UpdateForm
 from form.add_movie import AddMovieForm
+from api import api
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -52,12 +53,15 @@ def edit():
         
     return render_template("edit.html", form=form)
 
-@app.route("/movies/add")
+@app.route("/movies/add", methods=["GET", "POST"])
 def add():
     form = AddMovieForm()
 
     if form.validate_on_submit():
         movie_title = form.data.get('title')
+        movies = api.movie_lookup(movie_title)
+
+        return render_template("select.html", movies=movies)
     return render_template("add.html", form=form)
 
 if __name__ == '__main__':
