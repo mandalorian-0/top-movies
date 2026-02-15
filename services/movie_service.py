@@ -2,7 +2,12 @@ from sqlalchemy.orm import Session
 from models.movie import Movie
 
 def get_all_movies(db: Session) -> list[Movie]:
-    return db.query(Movie).all()
+    all_movies : list[Movie] = db.query(Movie).order_by(Movie.rating).all()
+
+    for idx, movie in enumerate(all_movies):
+        movie.ranking = len(all_movies) - idx
+
+    return all_movies
 
 def get_movie_by_id(db: Session, movie_id: int) -> Movie | None :
     return db.query(Movie).filter(Movie.id == movie_id).first()
