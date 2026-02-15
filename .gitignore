@@ -1,0 +1,141 @@
+# Virtual Environments
+venv/
+env/
+.venv/
+ENV/
+venv-bak/
+*.egg-info/
+
+# Python Cache & Compiled Files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+
+# IDE & Editor Files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+.DS_Store
+Thumbs.db
+
+# Logs & Temporary Files
+*.log
+*.tmp
+*.pid
+*.out
+*.err
+*.debug
+*.cache
+*.sqlite3-shm
+*.sqlite3-wal
+
+# Databases & Migrations (Flask-SQLAlchemy)
+.db
+database.db
+app.db
+*.sqlite
+migrations/
+    *.pyc
+    *.sqlite
+    *.bak
+    *.old
+    *.tmp
+
+# Local Configuration Files
+.env
+.local.env
+secrets.py
+config.py
+config.local.py
+config.dev.py
+config.prod.py
+
+# Generated Static Assets (from Flask-Bootstrap or Jinja2)
+# These are NOT committed — they are generated at runtime
+# So exclude them to avoid bloat
+static/
+    css/
+        *.css
+        *.min.css
+    js/
+        *.js
+        *.min.js
+    images/
+        *.png
+        *.jpg
+        *.jpeg
+        *.gif
+        *.svg
+    fonts/
+        *.woff
+        *.woff2
+        *.ttf
+        *.eot
+
+# Build & Distribution Artifacts
+dist/
+build/
+*.egg
+*.whl
+*.tar.gz
+*.zip
+*.tar
+*.egg-info/
+*.egg-info/
+*.dist-info/
+*.dist-info/
+*.egg-info/
+*.dist-info/
+
+# IDE & Linting
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+
+# Flask Debug & Development
+flask_run.log
+debug.log
+app.log
+
+# Environment-specific files
+*.env.local
+*.env.development
+*.env.production
+*.env.staging
+
+# Cache & Session Files
+session/
+cache/
+sessions/
+*.session
+*.sess
+*.session
+
+# Git Submodules (if used)
+.gitmodules
+.git submodule
+
+# Node.js / npm (if any frontend tools are used)
+node_modules/
+npm-debug.log
+package-lock.json
+yarn.lock
+
+# Docker (optional)
+.dockerignore
+.docker/
+.Dockerfile
+docker-compose.yml
+docker/
