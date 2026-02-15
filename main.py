@@ -21,7 +21,7 @@ def get_db():
     finally:
         db.close()
 
-@app.route("/")
+@app.route("/movies")
 def home():
     db = next(get_db())
     movies = get_all_movies(db)
@@ -35,7 +35,7 @@ def home():
             print(e)
     return render_template("index.html", movies=movies)
 
-@app.route("/edit", methods=["GET", "POST"])
+@app.route("/movies/edit", methods=["GET", "POST"])
 def edit():
     form = UpdateForm()
     db = next(get_db())
