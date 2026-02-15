@@ -11,7 +11,7 @@ headers: dict[str, str] = {
     "Authorization": f"Bearer {os.getenv("ACCESS_TOKEN")}"
 }
 
-def movie_lookup(title: str):
+def movie_title_lookup(title: str):
     url: str = endpoint + f"search/movie?query={title}"
     try:
         response: requests.Response = requests.get(url, headers=headers)
@@ -23,4 +23,4 @@ def movie_lookup(title: str):
         print(e)
 
 if __name__ == "__main__":
-    movie_lookup("Avatar")
+    movie_title_lookup("Avatar")

@@ -59,7 +59,7 @@ def add():
 
     if form.validate_on_submit():
         movie_title = form.data.get('title')
-        movies = api.movie_lookup(movie_title)
+        movies = api.movie_title_lookup(movie_title)
 
         return render_template("select.html", movies=movies)
     return render_template("add.html", form=form)
