@@ -4,6 +4,7 @@ from flask_bootstrap import Bootstrap5
 from db.__init__ import SessionLocal, create_tables
 from services.movie_service import get_all_movies, update_movie, delete_movie
 from form.update import UpdateForm
+from form.add_movie import AddMovieForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -51,6 +52,13 @@ def edit():
         
     return render_template("edit.html", form=form)
 
+@app.route("/movies/add")
+def add():
+    form = AddMovieForm()
+
+    if form.validate_on_submit():
+        movie_title = form.data.get('title')
+    return render_template("add.html", form=form)
 
 if __name__ == '__main__':
     app.run(debug=True)
