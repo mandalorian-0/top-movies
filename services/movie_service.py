@@ -13,7 +13,7 @@ def add_movie(db: Session, movie):
     db.add(new_movie)
     db.commit()
     db.refresh(new_movie)
-    # return new_movie
+    return new_movie.id
 
 def update_movie(db: Session, movie_id: int, movie_data: dict | None) -> Movie | None:
     movie_to_update = get_movie_by_id(db, movie_id)

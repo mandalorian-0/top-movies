@@ -70,8 +70,8 @@ def add():
             "year": movie_detail.get("release_date"),
             "description": movie_detail.get("overview")
         }
-        add_movie(db, new_movie)
-        return redirect(url_for("home"))
+        new_movie_id = add_movie(db, new_movie)
+        return redirect(url_for("edit", id=new_movie_id))
 
     if form.validate_on_submit():
         movie_title = form.data.get('title')
