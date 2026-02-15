@@ -4,8 +4,16 @@ from models.movie import Movie
 def get_all_movies(db: Session) -> list[Movie]:
     return db.query(Movie).all()
 
-def get_movie_by_id(db: Session, movie_id: int)-> Movie | None :
+def get_movie_by_id(db: Session, movie_id: int) -> Movie | None :
     return db.query(Movie).filter(Movie.id == movie_id).first()
+
+def add_movie(db: Session, movie_data):
+    new_movie = Movie(movie_data)
+    
+    db.add(new_movie)
+    db.commit()
+    db.refresh(new_movie)
+    # return new_movie
 
 def update_movie(db: Session, movie_id: int, movie_data: dict | None) -> Movie | None:
     movie_to_update = get_movie_by_id(db, movie_id)
