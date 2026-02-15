@@ -60,24 +60,24 @@ config.prod.py
 # Generated Static Assets (from Flask-Bootstrap or Jinja2)
 # These are NOT committed — they are generated at runtime
 # So exclude them to avoid bloat
-static/
-    css/
-        *.css
-        *.min.css
-    js/
-        *.js
-        *.min.js
-    images/
-        *.png
-        *.jpg
-        *.jpeg
-        *.gif
-        *.svg
-    fonts/
-        *.woff
-        *.woff2
-        *.ttf
-        *.eot
+# static/
+#     css/
+#         *.css
+#         *.min.css
+#     js/
+#         *.js
+#         *.min.js
+#     images/
+#         *.png
+#         *.jpg
+#         *.jpeg
+#         *.gif
+#         *.svg
+#     fonts/
+#         *.woff
+#         *.woff2
+#         *.ttf
+#         *.eot
 
 # Build & Distribution Artifacts
 dist/
